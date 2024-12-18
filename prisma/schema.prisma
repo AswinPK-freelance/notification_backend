@@ -1,0 +1,31 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id            Int            @id @default(autoincrement())
+    name          String
+    email         String         @unique
+    password      String
+    role          String         @default("USER")
+    notifications Notification[]
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
+}
+
+model Notification {
+    id           Int       @id @default(autoincrement())
+    title        String
+    message      String
+    read         Boolean   @default(false)
+    userId       Int
+    user         User      @relation(fields: [userId], references: [id])
+    scheduledFor DateTime?
+    createdAt    DateTime  @default(now())
+    updatedAt    DateTime  @updatedAt
+}

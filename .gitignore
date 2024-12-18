@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Environment variables
+.env
+
+# TypeScript
+*.tsbuildinfo
+
+# Vscode settings
+.vscode/
+
+# macOS Finder
+.DS_Store
+
+# Windows Installer files
+Thumbs.db
+
+# IDE or editor folders
+.idea/
+*.sublime-workspace
+*.sublime-project
